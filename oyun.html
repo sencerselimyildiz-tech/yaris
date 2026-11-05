@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KSM Tamgaz</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#111111">
+<link rel="icon" href="icon-192.png">
+<style>
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;background:#111;color:#fff;font-family:sans-serif;text-align:center}
+img{width:120px;height:120px;border-radius:24px}
+button,a{font-size:20px;padding:14px 28px;border-radius:12px;border:0;background:#e63030;color:#fff;text-decoration:none}
+</style>
+</head>
+<body>
+<img src="icon-192.png" alt="KSM Tamgaz">
+<h2>KSM Tamgaz</h2>
+<button id="yukle" hidden>Ana ekrana yükle</button>
+<a href="index.html">Oyunu aç</a>
+<script>
+if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js');}
+let p;
+addEventListener('beforeinstallprompt',e=>{e.preventDefault();p=e;document.getElementById('yukle').hidden=false;});
+document.getElementById('yukle').onclick=()=>{p.prompt();};
+</script>
+</body>
+</html>
